@@ -1,10 +1,11 @@
 pub fn fib(n: u32) -> u32 {
     if n <= 2 {
         // The base case
-        todo!("Implement this");
+        1
     } else {
         // The recursive case
-        todo!("Implement this");
+        // n > 2
+        fib(n - 1) + fib(n - 2)
     }
 }
 
@@ -34,5 +35,20 @@ mod tests {
     fn fib_20() {
         let ret = fib(20);
         assert_eq!(ret, 6765);
+    }
+
+    #[test]
+    #[ignore]
+    fn fib_47() {
+        let ret = fib(47);
+        assert_eq!(ret, 2_971_215_073_u32);
+    }
+
+    #[test]
+    #[ignore]
+    #[should_panic]
+    fn fib_48() {
+        // fib(48) = 4_807_526_976 > u32::MAX
+        fib(48);
     }
 }
