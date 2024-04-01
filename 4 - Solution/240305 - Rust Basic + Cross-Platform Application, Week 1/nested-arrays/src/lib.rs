@@ -1,10 +1,13 @@
 pub fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
-    let m = matrix;
-    [
-        [m[0][0], m[1][0], m[2][0]],
-        [m[0][1], m[1][1], m[2][1]],
-        [m[0][2], m[1][2], m[2][2]],
-    ]
+    let mut ret = [[0; 3]; 3];
+
+    for i in 0..3 {
+        for j in 0..3 {
+            ret[i][j] = matrix[j][i];
+        }
+    }
+
+    ret
 }
 
 #[cfg(test)]
@@ -16,6 +19,7 @@ mod tests {
         let matrix = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
 
         let ret = transpose(matrix);
+        assert_eq!(ret, [[1, 0, 0], [0, 1, 0], [0, 0, 1],]);
     }
 
     #[test]
