@@ -34,6 +34,8 @@
     - Exclusive References
     - Slices: `&[T]`
     - Strings
+  - Assignment #1
+- Week 2 (3/19) [[Assignment]](./3%20-%20Assignment/240319%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%202/) [[Solution]](./4%20-%20Solution/240319%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%202/)
   - User-Defined Types
     - Named Structs
     - Tuple Structs
@@ -41,28 +43,52 @@
     - Static
     - Const
     - Type Aliases
-  - Assignment #1
-- Week 2 (TBA)
   - Pattern Matching
+    - Matching Values
+    - Destructuring
+    - Let Control Flow
   - Methods and Traits
-  - Generics
-  - Standard Library Types
-  - Standard Library Traits
+    - Methods
+    - Traits
+    - Deriving
   - Assignment #2
-- Week 3 (TBA)
+- Week 3 (4/2) [[Assignment]](./3%20-%20Assignment/240402%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%203/)
+  - Generics
+    - Generic Functions
+    - Generic Data Types
+    - Generic Traits
+    - `impl` Trait
+  - Standard Library Types
+    - Standard Library
+    - Documentation
+    - `Option`
+    - `Result`
+    - `String`
+    - `Vec`
+    - `HashMap`
+  - Standard Library Traits
+    - Comparisons
+    - Operators
+    - `From` and `Into`
+    - Casting
+    - `Read` and `Write`
+    - `Default`, struct update syntax
+    - Closures
+  - Assignment #3
+- Week 4 (TBA)
   - Memory Management
   - Smart Pointers
   - Borrowing
   - Lifetimes
-  - Assignment #3
-- Week 4 (TBA)
+  - Assignment #4
+- Week 5 (TBA)
   - Iterators
   - Modules
   - Testing
   - Error Handling
   - Unsafe Rust
-  - Assignment #4
-- Week 5 (TBA)
+  - Assignment #5
+- Week 6 (TBA)
   - Threads
   - Channels
   - Send and Async
@@ -70,15 +96,15 @@
   - Async Basics
   - Control Flow
   - Pitfalls
-  - Assignment #5
-- Week 6 (TBA)
-  - Closures
-  - Macros
   - Assignment #6
 - Week 7 (TBA)
+  - Closures
+  - Macros
+  - Assignment #7
+- Week 8 (TBA)
   - Foreign Function Interface (FFI)
   - Rust and WebAssembly
-  - Assignment #7
+  - Assignment #8
 
 ## References
 
