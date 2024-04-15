@@ -22,7 +22,23 @@ enum Expression {
 }
 
 fn eval(e: Expression) -> Result<i64, String> {
-    todo!()
+    match e {
+        Expression::Value(ret) => Ok(ret),
+        Expression::Op { op, left, right } => {
+            let left = eval(*left)?;
+            let right = eval(*right)?;
+            if let (Operation::Div, 0) = (&op, right) {
+                return Err(String::from("Division by zero"));
+            }
+            let ret = match op {
+                Operation::Add => left.checked_add(right),
+                Operation::Sub => left.checked_sub(right),
+                Operation::Mul => left.checked_mul(right),
+                Operation::Div => left.checked_div(right),
+            };
+            ret.ok_or(String::from("Integer overflow"))
+        }
+    }
 }
 
 #[cfg(test)]
@@ -81,6 +97,26 @@ mod tests {
                 right: Box::new(Expression::Value(0)),
             }),
             Err(String::from("Division by zero"))
+        );
+    }
+
+    #[test]
+    fn test_overflow() {
+        assert_eq!(
+            eval(Expression::Op {
+                op: Operation::Mul,
+                left: Box::new(Expression::Value(i64::MAX)),
+                right: Box::new(Expression::Value(1)),
+            }),
+            Ok(i64::MAX),
+        );
+        assert_eq!(
+            eval(Expression::Op {
+                op: Operation::Mul,
+                left: Box::new(Expression::Value(i64::MAX)),
+                right: Box::new(Expression::Value(2)),
+            }),
+            Err(String::from("Integer overflow"))
         );
     }
 }
