@@ -1,13 +1,10 @@
-use std::marker::PhantomData;
 #[cfg(test)]
 use std::rc::Rc;
 
 pub struct CircularBuffer<T> {
-    // This field is here to make the template compile and not to
-    // complain about unused type parameter 'T'. Once you start
-    // solving the exercise, delete this field and the 'std::marker::PhantomData'
-    // import.
-    field: PhantomData<T>,
+    elements: Vec<Option<T>>,
+    begin: Option<usize>,
+    end: usize,
 }
 
 #[derive(Debug, PartialEq)]
@@ -18,29 +15,67 @@ pub enum Error {
 
 impl<T> CircularBuffer<T> {
     pub fn new(capacity: usize) -> Self {
-        unimplemented!(
-            "Construct a new CircularBuffer with the capacity to hold {}.",
-            match capacity {
-                1 => "1 element".to_string(),
-                _ => format!("{} elements", capacity),
-            }
-        );
+        let mut ret = Self {
+            elements: Vec::with_capacity(capacity),
+            begin: None,
+            end: 0,
+        };
+        for _ in 0..capacity {
+            ret.elements.push(None);
+        }
+        ret
     }
 
     pub fn write(&mut self, _element: T) -> Result<(), Error> {
-        unimplemented!("Write the passed element to the CircularBuffer or return FullBuffer error if CircularBuffer is full.");
+        match self.begin {
+            None => {
+                self.begin = Some(self.end);
+            }
+            Some(i) if i == self.end => {
+                return Err(Error::FullBuffer);
+            }
+            Some(_) => (),
+        }
+        self.elements[self.end] = Some(_element);
+        self.end = self.next_index(self.end);
+        Ok(())
     }
 
     pub fn read(&mut self) -> Result<T, Error> {
-        unimplemented!("Read the oldest element from the CircularBuffer or return EmptyBuffer error if CircularBuffer is empty.");
+        match self.begin {
+            None => Err(Error::EmptyBuffer),
+            Some(i) => {
+                let element = self.elements[i].take().unwrap();
+                let next_i = self.next_index(i);
+                self.begin = if next_i == self.end {
+                    None
+                } else {
+                    Some(next_i)
+                };
+                Ok(element)
+            }
+        }
     }
 
     pub fn clear(&mut self) {
-        unimplemented!("Clear the CircularBuffer.");
+        for x in self.elements.iter_mut() {
+            *x = None;
+        }
+        self.begin = None;
+        self.end = 0;
     }
 
     pub fn overwrite(&mut self, _element: T) {
-        unimplemented!("Write the passed element to the CircularBuffer, overwriting the existing elements if CircularBuffer is full.");
+        if let Some(i) = self.begin {
+            if i == self.end {
+                let _ = self.read();
+            }
+        }
+        self.write(_element).unwrap()
+    }
+
+    fn next_index(&self, i: usize) -> usize {
+        (i + 1) % self.elements.len()
     }
 }
 
