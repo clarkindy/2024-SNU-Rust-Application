@@ -1,5 +1,3 @@
-// TODO: remove this when you're done with your implementation.
-#![allow(unused_variables, dead_code)]
 #![allow(dead_code)]
 pub struct User {
     name: String,
@@ -32,8 +30,23 @@ impl User {
         }
     }
 
-    pub fn visit_doctor(&mut self, measurements: Measurements) -> HealthReport {
-        todo!("Update a user's statistics based on measurements from a visit to the doctor")
+    pub fn visit_doctor<'a>(&'a mut self, measurements: Measurements) -> HealthReport<'a> {
+        self.visit_count += 1;
+        let to_i32 = |x: u32| i32::try_from(x).unwrap();
+        let ret = HealthReport {
+            patient_name: &self.name,
+            visit_count: u32::try_from(self.visit_count).unwrap_or(u32::MAX),
+            height_change: measurements.height - self.height,
+            blood_pressure_change: self.last_blood_pressure.map(|x| {
+                (
+                    to_i32(measurements.blood_pressure.0) - to_i32(x.0),
+                    to_i32(measurements.blood_pressure.1) - to_i32(x.1),
+                )
+            }),
+        };
+        self.height = measurements.height;
+        self.last_blood_pressure = Some(measurements.blood_pressure);
+        ret
     }
 }
 
