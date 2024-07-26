@@ -75,7 +75,7 @@
     - `Default`, struct update syntax
     - Closures
   - Assignment #3
-- Week 4 (4/30) [[Assignment]](./3%20-%20Assignment/240430%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%204/)
+- Week 4 (4/30) [[Assignment]](./3%20-%20Assignment/240430%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%204/) [[Solution]](./4%20-%20Solution/240430%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%204/)
   - Memory Management
     - Review of Program Memory
     - Approaches to Memory Management
@@ -97,30 +97,132 @@
     - Lifetime Elision
     - Struct Lifetimes
   - Assignment #4
-- Week 5 (TBA)
+- Week 5 (5/14) [[Assignment]](./3%20-%20Assignment/240514%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%205/) [[Solution]](./4%20-%20Solution/240514%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%205/)
   - Iterators
+    - `Iterator`
+    - `IntoIterator`
+    - `FromIterator`
   - Modules
+    - Modules
+    - Filesystem Hierarchy
+    - Visibility
+    - `use`, `super`, `self`
   - Testing
+    - Test Modules
+    - Other Types of Tests
+    - Compiler Lints and Clippy
   - Error Handling
+    - Panics
+    - Try Operator
+    - Try Conversions
+    - `Error` Trait
+    - `thiserror` and `anyhow`
   - Unsafe Rust
+    - Unsafe
+    - Dereferencing Raw Pointers
+    - Mutable Static Variables
+    - Unions
+    - Unsafe Functions
+    - Unsafe Traits
   - Assignment #5
-- Week 6 (TBA)
-  - Threads
-  - Channels
-  - Send and Async
-  - Shared State
-  - Async Basics
-  - Control Flow
-  - Pitfalls
-  - Assignment #6
-- Week 7 (TBA)
+- Week 6 (5/28) [[Lecture]](./1%20-%20Lecture/240528%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%206.pdf) [[Assignment]](./3%20-%20Assignment/240528%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%206/) [[Solution]](./4%20-%20Solution/240528%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%206/)
   - Closures
+    - Capturing Variables
+      - Closures that Borrow
+      - Closures that Steal
+    - Function and Closure Types
+    - Closure Performance
+    - Closures and Safety
+      - Closures that Kill
+      - `FnOnce`
+      - `FnMut`
+      - `Copy` and `Clone` for Closures
+    - Callbacks
+    - Using Closures Effectively
+  - Assignment #6
+- Week 7 (6/25) [[Lecture]](./1%20-%20Lecture/240625%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%207.pdf) [[Assignment]](./3%20-%20Assignment/240625%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%207/) [[Solution]](./4%20-%20Solution/240625%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%207/)
   - Macros
+    - Macro Basics
+      - Basics of Macro Expansion
+      - Unintended Consequences
+      - Repetition
+    - Built-in Macros
+    - Debugging Macros
+    - Building the `json!` Macro
+      - Fragment Types
+      - Recursion in Macros
+      - Using Traits with Macros
+      - Scoping and Hygiene
+      - Importing and Exporting Macros
+    - Avoiding Syntax Errors During Matching
+    - Beyond macro_rules!
   - Assignment #7
-- Week 8 (TBA)
+- Week 8 (7/2) [[Lecture]](./1%20-%20Lecture/240702%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%208.pdf) [[Example]](./2%20-%20Example/240702%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%208/) [[Assignment]](./3%20-%20Assignment/240702%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%208/) [[Solution]](./4%20-%20Solution/240702%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%208/)
+  - Concurrency, Part 1
+    - Fork-Join Parallelism
+      - `spawn` and `join`
+      - Error Handling Across Threads
+      - Sharing Immutable Data Across Threads
+      - `Rayon`
+    - Channels
+      - Sending Values
+      - Receiving Values
+      - Running the Pipeline
+      - Channel Features and Performance
+      - Thread Safety: `Send` and `Sync`
+      - Piping Almost Any Iterator to a Channel
+      - Beyond Pipelines
+  - Assignment #8
+- Week 9 (7/9) [[Lecture]](./1%20-%20Lecture/240709%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%209.pdf) [[Assignment]](./3%20-%20Assignment/240709%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%209/)
+  - Concurrency, Part 2
+    - Shared Mutable State
+      - What Is a Mutex?
+      - `Mutex<T>`
+      - `mut` and `Mutex`
+      - Why Mutexes Are Not Always a Good Idea
+      - Deadlock
+      - Poisoned Mutexes
+      - Multiconsumer Channels Using Mutexes
+      - Read/Write Locks (`RwLock<T>`)
+      - Condition Variables (`Condvar`)
+      - Atomics
+      - Global Variables
+  - Assignment #9
+- Week 10 (7/16) [[Lecture]](./1%20-%20Lecture/240716%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%2010.pdf)
+  - Asynchronous Programming, Part 1
+    - From Synchronous to Asynchronous
+      - Futures
+      - Async Functions and Await Expressions
+      - Calling Async Functions from Synchronous Code: `block_on`
+      - Spawning Async Tasks
+      - Async Blocks
+      - Building Async Functions from Async Blocks
+      - Spawning Async Tasks on a Thread Pool
+      - But Does Your Future Implement `Send`?
+      - Long Running Computations: `yield_now` and `spawn_blocking`
+      - Comparing Asynchronous Designs
+      - A Real Asynchronous HTTP Client
+- Week 11 (7/23) [[Lecture]](./1%20-%20Lecture/240723%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%2011.pdf) [[Example]](./2%20-%20Example/240723%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%2011/)
+  - Asynchronous Programming, Part 2
+    - From Synchronous to Asynchronous
+      - But Does Your Future Implement `Send`?
+      - Long Running Computations: `yield_now` and `spawn_blocking`
+      - Comparing Asynchronous Designs
+      - A Real Asynchronous HTTP Client
+    - An Asynchronous Client and Server
+      - Error and Result Types
+      - The Protocol
+      - Talking User Input: Asynchronous Streams
+      - Sending Packets
+      - Receving Packets: More Asynchronous Streams
+      - The Client's Main Function
+- Week 12 (TBA)
+  - Asynchronous Programming, Part 3
+  - Assignment #10
+- Week 13 (TBA)
   - Foreign Function Interface (FFI)
   - Rust and WebAssembly
-  - Assignment #8
+  - Assignment #11
 
 ## References
 
