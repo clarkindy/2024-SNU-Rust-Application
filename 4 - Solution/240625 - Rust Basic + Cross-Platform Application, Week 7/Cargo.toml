@@ -1,7 +1,7 @@
 [workspace]
 members = [
     "hashmap",
-    "pangram",
-    "binary-search",
+    "for_2d",
+    "graph",
 ]
 resolver = "2"

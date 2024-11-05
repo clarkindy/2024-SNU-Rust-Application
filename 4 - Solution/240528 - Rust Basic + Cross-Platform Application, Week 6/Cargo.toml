@@ -1,7 +1,7 @@
 [workspace]
 members = [
-    "paas-io",
-    "book-store",
-    "react",
+    "cache-system",
+    "order-filtering-system",
+    "task-scheduler",
 ]
 resolver = "2"

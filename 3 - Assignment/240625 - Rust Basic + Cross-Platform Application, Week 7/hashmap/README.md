@@ -21,9 +21,11 @@ For example, a user of your library might write `hashmap!('a' => 3, 'b' => 11, '
 ```rust
 {
    let mut hm = HashMap::new();
+
    hm.insert('a', 3);
    hm.insert('b', 11);
    hm.insert('z', 32);
+   
    hm
 }
 ```

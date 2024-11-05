@@ -2,6 +2,11 @@
 
 2024-SNU-Rust-Application is the material(lecture notes, examples and assignments) repository for learning Rust programming language and making a simple cross-platform application at Seoul National University Club 'SCSC' and 'WaffleStudio' in 2024 Spring.
 
+## Updates
+
+- 2024-10-02: Added new contents for lecture "Closures" and renewed Assignment #6 and its solution.
+- 2024-10-08: Added new contents for lecture "Macros" and renewed Assignment #7 and its solution.
+
 ## Contents
 
 - Week 0 (3/5) [[Lecture]](./1%20-%20Lecture/240305%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%200.pdf)
@@ -125,7 +130,7 @@
     - Unsafe Functions
     - Unsafe Traits
   - Assignment #5
-- Week 6 (5/28) [[Lecture]](./1%20-%20Lecture/240528%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%206.pdf) [[Assignment]](./3%20-%20Assignment/240528%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%206/) [[Solution]](./4%20-%20Solution/240528%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%206/)
+- Week 6 (5/28) [[Lecture]](./1%20-%20Lecture/240528%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%206.pdf) [[Example]](./2%20-%20Example/240528%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%206/) [[Assignment]](./3%20-%20Assignment/240528%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%206/) [[Solution]](./4%20-%20Solution/240528%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%206/)
   - Closures
     - Capturing Variables
       - Closures that Borrow
@@ -140,7 +145,7 @@
     - Callbacks
     - Using Closures Effectively
   - Assignment #6
-- Week 7 (6/25) [[Lecture]](./1%20-%20Lecture/240625%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%207.pdf) [[Assignment]](./3%20-%20Assignment/240625%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%207/) [[Solution]](./4%20-%20Solution/240625%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%207/)
+- Week 7 (6/25) [[Lecture]](./1%20-%20Lecture/240625%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%207.pdf) [[Example]](./2%20-%20Example/240625%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%207/) [[Assignment]](./3%20-%20Assignment/240625%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%207/) [[Solution]](./4%20-%20Solution/240625%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%207/)
   - Macros
     - Macro Basics
       - Basics of Macro Expansion
@@ -216,10 +221,26 @@
       - Sending Packets
       - Receving Packets: More Asynchronous Streams
       - The Client's Main Function
-- Week 12 (TBA)
+- Week 12 (8/6) [[Lecture]](./1%20-%20Lecture/240806%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%2012.pdf) [[Example]](./2%20-%20Example/240806%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%2012/)
   - Asynchronous Programming, Part 3
+    - An Asynchronous Client and Server
+      - The Server's Main Function
+      - Handling Chat Connections: Async Mutexes
+      - The Group Table: Synchronous Mutexes
+      - Chat Groups: `tokio`'s Broadcast Channels
+    - Primitive Futures and Executors: When Is a Future Worth Polling Again?
+- Week 13 (8/16) [[Lecture]](./1%20-%20Lecture/240816%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%2013.pdf) [[Example]](./2%20-%20Example/240816%20-%20Rust%20Basic%20+%20Cross-Platform%20Application,%20Week%2013/)
+  - Asynchronous Programming, Part 4
+    - Primitive Futures and Executors: When Is a Future Worth Polling Again?
+      - Invoking Wakers: `spawn_blocking`
+      - Implementing `block_on`
+    - Pinning
+      - The Two Life Stages of a Future
+      - Pinned Pointers
+      - The `Unpin` 
+    - When Is Asynchronous Code Helpful?
   - Assignment #10
-- Week 13 (TBA)
+- Week 14 (TBA)
   - Foreign Function Interface (FFI)
   - Rust and WebAssembly
   - Assignment #11
